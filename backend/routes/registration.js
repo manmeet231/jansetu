@@ -5,7 +5,7 @@ const User = require("../models/userSchema");
 
 route.post("/registration", async (req,res)=>{
     try{
-    const {username,useremail,userpassword} = req.body;
+    const {name,email,password} = req.body;
 
     const user = await User.create({
         name:username,
