@@ -12,7 +12,7 @@ const registration =require("./routes/registration");
 // using the modules and the routes
 app.use(cors());
 app.use(express.json())
-app.post("api/auth",registration);
+app.use("/api/auth",registration);
 
 // checking connection to the database
 mongoose.connect(process.env.mongo_url).then(()=>{
