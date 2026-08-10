@@ -8,12 +8,12 @@ route.post("/registration", async (req,res)=>{
     const {name,email,password} = req.body;
 
     const user = await User.create({
-        name:username,
-        email:useremail,
-        password:userpassword
+        name:name,
+        email:email,
+        password:password
     });
 
-    res.status(201).send(`user ${username} has been created`)
+    res.status(201).send(`user ${name} has been created`)
     }
     catch(err){
         res.json({
