@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const registration =require("./routes/registration");
+const {redisClient} = require('./redis');
 
 // using the modules and the routes
 app.use(cors());
@@ -21,7 +22,15 @@ mongoose.connect(process.env.mongo_url).then(()=>{
     console.log("mongoDB connection failed:", error)
 });
 
+// checking connection with redis
+async function startServer(){
+    await redisClient.connect();
+
+    console.log("Redis connected");
+}
 // starting the server 
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on port: ${PORT}`);
 });
+
+startSever();
