@@ -60,7 +60,6 @@ route.post("/send-otp", async (req,res)=>{
         from: process.env.twilio_phone_number,
         to: `+91${phoneNumber}`
     });
-    // will implement ip blocking next
-    
+
     
 }) 
